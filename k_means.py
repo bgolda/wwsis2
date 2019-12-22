@@ -57,7 +57,7 @@ class K_Means:
 		return classification
 
 def main():
-	df = pd.read_csv(r".\Machine-Learning-Algorithms-from-Scratch\data\ipl.csv")
+	df = pd.read_csv(r".\ipl.csv")
 	df = df[['one', 'two']]
 	dataset = df.astype(float).values.tolist()
 
