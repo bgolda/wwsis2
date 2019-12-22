@@ -36,12 +36,3 @@ for ngram in a:
 	else:
 		d[ngram] = 1
 print(d)
-
-#3
-x = -2 * np.random.rand(100,2)
-x1 = 1 + 2 * np.random.rand(50,2)
-x[50:100, :] = x1
-#plt.scatter(x[ : , 0], x[ :, 1], s = 50, c = 'b')
-#plt.show()
-print(x)
-print(x1)

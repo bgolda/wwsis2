@@ -1,5 +1,5 @@
 #this is a simple package to make sublime text open code snippets in command line instead of sublime parser
-#since sublime text does not support inputs in its command line, osme programs has to be executed in cmd
+#since sublime text does not support inputs in its command line, some programs has to be executed in cmd
 
 import sublime
 import sublime_plugin
