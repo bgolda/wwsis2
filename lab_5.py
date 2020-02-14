@@ -3,6 +3,21 @@ import argparse
 import imutils
 import cv2
 import numpy as np
+import random
+
+def sp_noise(image,prob):
+	output = np.zeros(image.shape,np.uint8)
+	thres = 1 - prob 
+	for i in range(image.shape[0]):
+		for j in range(image.shape[1]):
+			rdn = random.random()
+			if rdn < prob:
+				output[i][j] = 0
+			elif rdn > thres:
+				output[i][j] = 255
+			else:
+				output[i][j] = image[i][j]
+	return output
 
 #task1
 image1 = cv2.imread('./Lab5_imgs/lion.jpg')
@@ -35,6 +50,20 @@ if cv2.waitKey(0) & 0xff == 27:
 	
 bitwise_xor = cv2.bitwise_xor(image1, image2, mask = None)
 cv2.imshow('Bitwise XOr', bitwise_xor)
+
+if cv2.waitKey(0) & 0xff == 27:  
+	cv2.destroyAllWindows()
+
+#task5
+
+noise_img = sp_noise(image1,0.05)
+cv2.imshow('Noise', noise_img)
+
+if cv2.waitKey(0) & 0xff == 27:  
+	cv2.destroyAllWindows()
+
+no_noise_img = cv.fastNlMeansDenoisingMulti(noise_img, 2, 5, None, 4, 7, 35)
+cv2.imshow('No noise', no_noise_img)
 
 if cv2.waitKey(0) & 0xff == 27:  
 	cv2.destroyAllWindows()
