@@ -4,6 +4,7 @@ import imutils
 import cv2
 import numpy as np
 
+#task1
 image1 = cv2.imread('./Lab5_imgs/lion.jpg')
 image2 = cv2.imread('./Lab5_imgs/color.jpg')
 
@@ -34,6 +35,34 @@ if cv2.waitKey(0) & 0xff == 27:
 	
 bitwise_xor = cv2.bitwise_xor(image1, image2, mask = None)
 cv2.imshow('Bitwise XOr', bitwise_xor)
+
+if cv2.waitKey(0) & 0xff == 27:  
+	cv2.destroyAllWindows()
+
+#task6
+matrix = np.ones((5,5), np.uint8)
+
+img_erosion = cv2.erode(image1, matrix, iterations=1)
+img_dilation = cv2.dilate(image1, matrix, iterations=1)
+img_opening = cv2.morphologyEx(image1, cv2.MORPH_OPEN, matrix)
+img_closing = cv2.morphologyEx(image1, cv2.MORPH_CLOSE, matrix)
+
+cv2.imshow('Erosion', img_erosion)
+
+if cv2.waitKey(0) & 0xff == 27:  
+	cv2.destroyAllWindows()
+
+cv2.imshow('Dilation', img_dilation)
+
+if cv2.waitKey(0) & 0xff == 27:  
+	cv2.destroyAllWindows()
+
+cv2.imshow('Opening', img_opening)
+
+if cv2.waitKey(0) & 0xff == 27:  
+	cv2.destroyAllWindows()
+
+cv2.imshow('Closing', img_closing)
 
 if cv2.waitKey(0) & 0xff == 27:  
 	cv2.destroyAllWindows()
