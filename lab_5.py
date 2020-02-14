@@ -62,7 +62,7 @@ cv2.imshow('Noise', noise_img)
 if cv2.waitKey(0) & 0xff == 27:  
 	cv2.destroyAllWindows()
 
-no_noise_img = cv.fastNlMeansDenoisingMulti(noise_img, 2, 5, None, 4, 7, 35)
+no_noise_img = cv2.fastNlMeansDenoisingMulti(noise_img, 2, 5, None, 4, 7, 35)
 cv2.imshow('No noise', no_noise_img)
 
 if cv2.waitKey(0) & 0xff == 27:  
